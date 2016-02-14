@@ -1,11 +1,12 @@
-import java.util.Scanner;
-import java.util.HashMap;
-import java.io.FileOutputStream;
 import java.io.FileInputStream;
-import java.io.ObjectOutputStream;
+import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Scanner;
 
-class Employee
+class Employee implements Serializable
 {
     int EID;
     String name, dept;
@@ -27,7 +28,7 @@ class Employee
         
         System.out.print("Enter employee ID : ");
         this.EID = s.nextInt();
-        s.nextLine();
+        s.nextLine();									// to consume newline char left @nextInt()
         System.out.print("Enter employee name : ");
         this.name = s.nextLine();
         System.out.print("Enter employee department : ");
@@ -39,7 +40,7 @@ class Employee
     }
 }
 
-class Order
+class Order implements Serializable
 {
     int orderNo, itemNo, quantity;
     double price;
@@ -111,7 +112,7 @@ class Order
     }
 }
 
-public class Ex5_2
+public class Ex5_2 implements Serializable
 {
     public static void main(String args[]) throws Exception
     {
